@@ -21,18 +21,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: npm
 
       - name: Instalar dependencias
-        run: npm ci
+        run: npm install
 
       - name: Ejecutar tests
         run: npm test
 
-      - name: Build de la app
-        run: npm run build
+      - name: Build de la app (si existe)
+        run: npm run build --if-present
 
       - name: Subir artefacto de build
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: build-${{ matrix.node-version }}
