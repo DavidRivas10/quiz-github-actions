@@ -2,7 +2,9 @@ name: Ejercicio 1
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main        
+      - principal   
 
 jobs:
   hello:
@@ -15,4 +17,5 @@ jobs:
         run: date
 
       - name: Mostrar sistema operativo
-        run: echo "Sistema operativo: $RUNNER_OS"
+        run: |
+          echo "Sistema operativo: $RUNNER_OS"
