@@ -26,7 +26,7 @@ jobs:
         run: npm test
 
       - name: Mostrar sistema operativo
-        run: echo "Sistema operativo: ${{ runner.os }}"
+        run: echo "Sistema operativo: $RUNNER_OS"
 
       - name: Solo en Linux
         if: runner.os == 'Linux'
